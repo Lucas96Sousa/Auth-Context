@@ -1,6 +1,6 @@
 # Context API
 
-<p>Esse projeto serve como estudo do Context API do react e react-native</p>
+Esse projeto serve como estudo do Context API do react e react-native
 
 ## Instalacao dos pacotes
 
