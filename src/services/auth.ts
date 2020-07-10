@@ -1,4 +1,12 @@
-export function signIn() {
+interface Response {
+  token: string;
+  user: {
+    name: string;
+    email: string;
+  };
+}
+
+export function signIn(): Promise<Response> {
   return new Promise((resolve) => {
     setTimeout(() => {
       resolve({
@@ -8,6 +16,6 @@ export function signIn() {
           email: 'lucas@xpto.com',
         },
       });
-    }, 200);
+    }, 20000);
   });
 }

@@ -32,3 +32,5 @@ Toda vez que colocamos as informacoes dentro do context.provider, tudo que estiv
 Exemplo:
 
 > const AuthContext = createContext<AuthContextData>({} as AuthContextData);
+
+A chamada a api não está sendo feita no componente, apenas no contexto, sendo assim movendo a regra de negócio para um local mais adequado, pois o mesmo pode ser compartilhado a outros compoenentes.

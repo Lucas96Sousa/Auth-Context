@@ -1,17 +1,32 @@
-import React, {createContext} from 'react';
+import React, {createContext, useState} from 'react';
+import * as auth from '../services/auth';
 
 interface AuthContextData {
   signed: boolean;
-  token: string;
-  user: object;
+  user: object | null;
+  signIn(): Promise<void>;
+  signOut(): void;
 }
 
 const AuthContext = createContext<AuthContextData>({} as AuthContextData);
 
-export const AuthProvider: React.FC = ({children}) => (
-  <AuthContext.Provider value={{signed: false, token: '', user: {}}}>
-    {children}
-  </AuthContext.Provider>
-);
+export const AuthProvider: React.FC = ({children}) => {
+  const [user, setUser] = useState<object | null>(null);
 
+  const signIn = async () => {
+    const response = await auth.signIn();
+
+    setUser(response.user);
+  };
+
+  const signOut = () => {
+    setUser(null);
+  };
+
+  return (
+    <AuthContext.Provider value={{signed: !!user, user, signIn, signOut}}>
+      {children}
+    </AuthContext.Provider>
+  );
+};
 export default AuthContext;
