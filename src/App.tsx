@@ -1,27 +1,19 @@
+import 'react-native-gesture-handler';
+
 import React from 'react';
 
-import {View, Text, StyleSheet} from 'react-native';
+import {NavigationContainer} from '@react-navigation/native';
+import {AuthProvider} from './hooks/auth';
+import Routes from './routes/index';
 
 const App: React.FC = () => {
   return (
-    <View style={styles.container}>
-      <Text style={styles.body}>Olá</Text>
-    </View>
+    <NavigationContainer>
+      <AuthProvider>
+        <Routes />
+      </AuthProvider>
+    </NavigationContainer>
   );
 };
 
 export default App;
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-
-  body: {
-    fontWeight: '500',
-    fontSize: 24,
-    color: '#ff9000',
-  },
-});

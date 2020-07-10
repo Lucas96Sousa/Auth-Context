@@ -20,3 +20,15 @@ Importar no primeiro campo:
 ## Para a navegacao
 
 yarn add @react-navigation/stack
+
+# Context API
+
+Toda vez que colocamos as informacoes dentro do context.provider, tudo que estiver dentro do provedor terá acesso as informacoes contidas nele.
+
+- O contexto pode assumir algumas regras de negócio da aplicacao.
+
+- Aqui é informado que o tipo do createContext é o AuthContextData e o seu parametro é os dados da interface definida
+
+Exemplo:
+
+> const AuthContext = createContext<AuthContextData>({} as AuthContextData);
