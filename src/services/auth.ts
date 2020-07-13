@@ -16,6 +16,6 @@ export function signIn(): Promise<Response> {
           email: 'lucas@xpto.com',
         },
       });
-    }, 20000);
+    }, 2000);
   });
 }

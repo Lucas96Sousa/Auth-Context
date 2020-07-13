@@ -34,3 +34,8 @@ Exemplo:
 > const AuthContext = createContext<AuthContextData>({} as AuthContextData);
 
 A chamada a api não está sendo feita no componente, apenas no contexto, sendo assim movendo a regra de negócio para um local mais adequado, pois o mesmo pode ser compartilhado a outros compoenentes.
+
+# Envio do token pelo axios
+
+api.defaults.headers['Authorization'] = `Bearer ${response.token}`;
+Automaticamente em toda requisicao de login é enviado para o headers um token com a tag Authorization
